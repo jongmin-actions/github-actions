@@ -13,7 +13,7 @@ jobs:
         name: artifact-test
         paths: ./hello.txt
 
-  upload-artifact:
+  download-artifact:
     runs-on: ubuntu-latest
     needs: [ upload-artifact ]
     steps:
