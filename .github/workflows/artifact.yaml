@@ -12,3 +12,15 @@ jobs:
       with:
         name: artifact-test
         paths: ./hello.txt
+
+  upload-artifact:
+    runs-on: ubuntu-latest
+    needs: [ upload-artifact ]
+    steps:
+    - name: download artifact
+      uses: actions/download-artifact@v3
+      with:
+        name: artifact-test
+        paths: ./
+    - name: check
+      run: cat hello.txt
