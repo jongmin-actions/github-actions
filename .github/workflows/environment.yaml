@@ -1,37 +1,11 @@
-name: env level
+name: environment
 on: push
-env:
-  level: workflow
 
 jobs:
-  get-env-1:
-    runs-on: ubuntu-latest
-    steps:
-    - name: check env
-      run: echo "LEVEL ${{ env.level }}"
-
-  get-env-2:
-    runs-on: ubuntu-latest
-    env:
-      level: job
-    steps:
-    - name: check env
-      run: echo "LEVEL ${{ env.level }}"
-
-  get-env-3:
-    runs-on: ubuntu-latest
-    env:
-      level: job
-    steps:
-    - name: check env
-      run: echo "LEVEL ${{ env.level }}"
-      env:
-        level: step
-  
   get-env:
     runs-on: ubuntu-latest
     steps:
-    - name: create ebnv
-      run: echo "level=job" >> $GITHUB_ENV
-    - name: check env
-      run: echo "LEVEL ${{ env.level }}"
+    - name: check env & secret
+      run: |
+        echo ${{ vars.level }}
+        echo ${{ secrets.key }}
