@@ -95,18 +95,18 @@ jobs:
       uses: slackapi/slack-github-action@v1.24.0
       with:
         payload: |
-        {
-          "text": "message",
-          "blocks": [
-            {
-              "type": "section",
-              "text": {
-                "type": "mrkdwn",
-                "text": "Environment : dev, Deploy Result: ${{ steps.status.outcome }}, Repository: ${{ github.repository }}"
+          {
+            "text": "message",
+            "blocks": [
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "Environment : dev, Deploy Result: ${{ steps.status.outcome }}, Repository: ${{ github.repository }}"
+                }
               }
-            }
-          ]
-        }
+            ]
+          }
       env:
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
